@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/16 16:08:05 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/20 16:05:11 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,36 +14,12 @@
 
 int	main(int argc, char **argv)
 {
-	int		i;
-	int		j;
-	int		digit;
-	bool	seen[argc - 1];
+	t_data	stack;
 
-	i = 1;
 	if (argc < 2)
-	{
-		ft_printf("Error\n");
 		return (0);
-	}
-	while (i < argc)
-	{
-		j = 0;
-		while (argv[i][j] != '\0')
-		{
-			if (!ft_isdigit(argv[i][j]))
-			{
-				ft_printf("Error\n");
-				return(0);
-			}
-			digit = argv[i][j] - '0';
-			if (seen[digit])
-			{
-				ft_printf("Error\n");
-				return (0);
-			}
-			seen[digit] = true;
-			j++;
-		}
-		i++;
-	}
+	stack.len = argc - 1;
+	if (check_input(&stack, argv) == 0)
+		return(0);
+	fill_stack(&stack, argv);
 }
