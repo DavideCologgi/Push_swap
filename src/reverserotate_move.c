@@ -6,13 +6,13 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:55:46 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/20 13:08:16 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/21 11:15:10 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rra(t_data *stack)
+void	rra(t_data *stack, int flag)
 {
 	int	tmp;
 
@@ -24,9 +24,11 @@ void	rra(t_data *stack)
 		stack->last_pos--;
 	}
 	stack->a[0] = tmp;
+	if (flag == 0)
+		ft_printf("rra\n");
 }
 
-void	rrb(t_data *stack)
+void	rrb(t_data *stack, int flag)
 {
 	int	tmp;
 
@@ -38,10 +40,13 @@ void	rrb(t_data *stack)
 		stack->last_pos--;
 	}
 	stack->b[0] = tmp;
+	if (flag == 0)
+		ft_printf("rrb\n");
 }
 
 void	rrr(t_data *stack)
 {
-	rra(stack);
-	rrb(stack);
+	rra(stack, 1);
+	rrb(stack, 1);
+	ft_printf("rrr\n");
 }

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/20 16:11:17 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/21 11:02:28 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include "../ft_printf/ft_printf.h"
 
 typedef struct s_data{
-	int	*a;
-	int	*b;
-	int	len;
-	int	last_pos;
+	int		*a;
+	int		*b;
+	int		len;
+	int		last_pos;
+	char	*last_move;
 }	t_data;
 
 int		ft_is_digit(char c);

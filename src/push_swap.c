@@ -21,5 +21,6 @@ int	main(int argc, char **argv)
 	stack.len = argc - 1;
 	if (check_input(&stack, argv) == 0)
 		return(0);
-	fill_stack(&stack, argv);
+	fill_stack_a(&stack, argv);
+	find_lis(stack);
 }

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:39:01 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/20 13:27:37 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/21 11:01:22 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ void	sa(t_data *stack)
 		stack->a[0] = stack->a[1];
 		stack->a[1] = tmp;
 	}
+	ft_printf("sa\n");
 }
 
 void	sb(t_data *stack)
@@ -34,12 +35,14 @@ void	sb(t_data *stack)
 		stack->b[0] = stack->b[1];
 		stack->b[1] = tmp;
 	}
+	ft_printf("sb\n");
 }
 
 void	ss(t_data *stack)
 {
 	sa(stack);
 	sb(stack);
+	ft_printf("ss\n");
 }
 
 void	pa(t_data *stack)

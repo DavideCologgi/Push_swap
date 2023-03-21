@@ -6,13 +6,20 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:53:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/20 13:15:34 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/21 12:09:15 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	ra(t_data *stack)
+int	check_better_rot(t_data *stack, int	pos)
+{
+	if (pos <= (stack->len / 2))
+		return(1);
+	return (0);
+}
+
+void	ra(t_data *stack, int flag)
 {
 	int	tmp;
 	int	i;
@@ -26,9 +33,11 @@ void	ra(t_data *stack)
 		i++;
 	}
 	stack->a[stack->last_pos] = tmp;
+	if (flag == 0)
+		ft_printf("ra\n");
 }
 
-void	rb(t_data *stack)
+void	rb(t_data *stack, int flag)
 {
 	int	tmp;
 	int	i;
@@ -42,10 +51,13 @@ void	rb(t_data *stack)
 		i++;
 	}
 	stack->b[stack->last_pos] = tmp;
+	if (flag == 0)
+		ft_printf("rb\n");
 }
 
 void	rr(t_data *stack)
 {
-	ra(stack);
-	rb(stack);
+	ra(stack, 1);
+	rb(stack, 1);
+	ft_printf("rr\n");
 }
