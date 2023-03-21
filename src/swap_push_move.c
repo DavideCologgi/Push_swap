@@ -12,7 +12,7 @@
 
 #include "../includes/push_swap.h"
 
-void	sa(t_data *stack)
+void	sa(t_data *stack, int flag)
 {
 	int	tmp;
 
@@ -22,10 +22,11 @@ void	sa(t_data *stack)
 		stack->a[0] = stack->a[1];
 		stack->a[1] = tmp;
 	}
-	ft_printf("sa\n");
+	if (flag == 0)
+		ft_printf("sa\n");
 }
 
-void	sb(t_data *stack)
+void	sb(t_data *stack, int flag)
 {
 	int	tmp;
 
@@ -35,13 +36,14 @@ void	sb(t_data *stack)
 		stack->b[0] = stack->b[1];
 		stack->b[1] = tmp;
 	}
-	ft_printf("sb\n");
+	if (flag == 0)
+		ft_printf("sb\n");
 }
 
 void	ss(t_data *stack)
 {
-	sa(stack);
-	sb(stack);
+	sa(stack, 1);
+	sb(stack, 1);
 	ft_printf("ss\n");
 }
 
