@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/21 15:54:56 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:23:26 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,8 +20,7 @@ int	main(int argc, char **argv)
 		return (0);
 	stack.len = argc - 1;
 	if (check_input(&stack, argv) == 0)
-		return(0);
+		return (0);
 	fill_stack_a(&stack, argv);
 	find_lis(&stack);
-
 }

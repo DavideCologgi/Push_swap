@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:39:53 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/21 09:41:09 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/22 16:19:50 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,9 +65,10 @@ int	check_input(t_data *stack, char **argv)
 {
 	int	i;
 	int	nb;
-	int	array_seen[stack->len];
+	int	*array_seen;
 
 	i = 0;
+	array_seen = calloc(sizeof(int), stack->len);
 	while (i < stack->len)
 	{
 		nb = ft_atoi(argv[i + 1]);
