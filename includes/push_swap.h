@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/22 16:16:15 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/27 12:25:55 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,8 @@
 typedef struct s_data{
 	int		*a;
 	int		*b;
+	int		*lis;
+	int		*seq;
 	int		len;
 	int		last_pos;
 	char	*last_move;
@@ -25,6 +27,7 @@ typedef struct s_data{
 
 int		ft_is_digit(char c);
 int		ft_atoi(const char *str);
+int		get_stack_len(int *stack);
 int		check_better_rot(t_data *stack, int pos);
 int		check_input(t_data *stack, char **argv);
 int		check_if_double(int nb, int	*array, int pos);
@@ -43,6 +46,6 @@ void	check_last_a(t_data *stack);
 void	check_last_b(t_data *stack);
 void	fill_stack_a(t_data *stack, char **argv);
 void	find_lis(t_data *stack);
-void	keep_lis(t_data *stack, int *lis);
+void	keep_lis(t_data *stack);
 
 #endif

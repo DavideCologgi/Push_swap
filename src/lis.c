@@ -6,41 +6,41 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 09:39:33 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/22 16:24:27 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/27 13:40:35 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
 // Funzione che controlla se il lis e' stato creato correttamente
-static void	print_lis(int *lis, int lis_len)
+static void	print_lis(t_data *stack, int lis_len)
 {
 	int	i;
 
 	i = 0;
 	while (i < lis_len)
 	{
-		ft_printf("%d\n", lis[i]);
+		ft_printf("%d\n", stack->lis[i]);
 		i++;
 	}
 }
 
-void	keep_lis(t_data *stack, int *lis)
+void	keep_lis(t_data *stack)
 {
 	int	i;
 	int	j;
 	int	lis_len;
 
 	i = 1;
-	lis_len = sizeof(*lis) / sizeof(int);
+	lis_len = get_stack_len(stack->lis);
 	while (i < lis_len)
 	{
 		j = 0;
 		while (j < stack->len)
 		{
-			if (stack->a[j] == lis[i])
+			if (stack->a[j] == stack->lis[i])
 			{
-				while (stack->a[0] != lis[i])
+				while (stack->a[0] != stack->lis[i])
 				{
 					if (check_better_rot(stack, j))
 						ra(stack, 0);
@@ -57,47 +57,58 @@ void	keep_lis(t_data *stack, int *lis)
 
 void	find_lis(t_data *stack)
 {
-	int	lis[stack->len];
-	int	seq[stack->len];
-	int	seq_len = 0;
-	int	lis_len = 0;
-	int	i, j;
+	int	dp[stack->len];
+	int	prev[stack->len];
+	int	lis_len;
+	int	i;
+	int	j;
 
+	// Inizializzazione degli array dp e prev
 	i = 0;
+	stack->lis = (int *)malloc(stack->len * sizeof(int));
+	lis_len = 0;
 	while (i < stack->len)
 	{
-		lis[i] = 0;
-		seq[i] = 0;
+		dp[i] = 1;
+		prev[i] = -1;
 		i++;
 	}
-	i = 0;
+
+	// Calcolo della LIS
+	i = 1;
 	while (i < stack->len)
 	{
-		seq[seq_len] = stack->a[i];
-		seq_len++;
-		j = i + 1;
-		while (j < stack->len)
+		j = 0;
+		while (j < i)
 		{
-			if (stack->a[j] > seq[seq_len - 1])
+			if (stack->a[j] < stack->a[i] && dp[j] + 1 > dp[i])
 			{
-				seq[seq_len] = stack->a[j];
-				seq_len++;
+				dp[i] = dp[j] + 1;
+				prev[i] = j;
 			}
 			j++;
 		}
-		if (seq_len > lis_len)
-		{
-			lis_len = seq_len;
-			j = 0;
-			while (j < seq_len)
-			{
-				lis[j] = seq[j];
-				j++;
-			}
-		}
 		i++;
-		seq_len = 0;
 	}
-	print_lis(lis, lis_len);
-	keep_lis(stack, lis);
+
+	// Trovare la lunghezza massima della LIS
+	i = 0;
+	while (i < stack->len)
+	{
+		if (dp[i] > dp[lis_len])
+			lis_len = i;
+		i++;
+	}
+
+	// Ricostruzione della LIS
+	i = lis_len;
+	j = dp[lis_len] - 1;
+	while (i >= 0)
+	{
+		stack->lis[j] = stack->a[i];
+		i = prev[i];
+		j--;
+	}
+	print_lis(stack, dp[lis_len]);
+	keep_lis(stack);
 }

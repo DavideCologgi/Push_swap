@@ -1,33 +1,22 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   push_swap.c                                        :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/27 13:41:44 by dcologgi         ###   ########.fr       */
+/*   Created: 2023/03/27 11:39:44 by dcologgi          #+#    #+#             */
+/*   Updated: 2023/03/27 11:50:00 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/push_swap.h"
+#include "push_swap.h"
 
-static void	ft_cleaner(t_data *stack)
+int	get_stack_len(int *stack)
 {
-	free (stack->a);
-	free (stack->lis);
-}
+	int	i;
 
-int	main(int argc, char **argv)
-{
-	t_data	stack;
-
-	if (argc < 2)
-		return (0);
-	stack.len = argc - 1;
-	if (check_input(&stack, argv) == 0)
-		return (0);
-	fill_stack_a(&stack, argv);
-	find_lis(&stack);
-	ft_cleaner(&stack);
+	i = 0;
+	i = (sizeof(*stack) / sizeof(int));
+	return (i);
 }
