@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 12:55:46 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/21 11:15:10 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:39:20 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,13 +15,14 @@
 void	rra(t_data *stack, int flag)
 {
 	int	tmp;
+	int	i;
 
-	check_last_a(stack);
-	tmp = stack->a[stack->last_pos];
-	while (stack->last_pos > 0)
+	tmp = stack->a[stack->len - 1];
+	i = 0;
+	while (i < stack->len)
 	{
-		stack->a[stack->last_pos] = stack->a[stack->last_pos - 1];
-		stack->last_pos--;
+		stack->a[stack->len - i] = stack->a[stack->len - i - 1];
+		i++;
 	}
 	stack->a[0] = tmp;
 	if (flag == 0)
@@ -31,13 +32,14 @@ void	rra(t_data *stack, int flag)
 void	rrb(t_data *stack, int flag)
 {
 	int	tmp;
+	int	i;
 
-	check_last_b(stack);
-	tmp = stack->b[stack->last_pos];
-	while (stack->last_pos > 0)
+	tmp = stack->b[stack->len - 1];
+	i = 0;
+	while (i < stack->len)
 	{
-		stack->b[stack->last_pos] = stack->b[stack->last_pos - 1];
-		stack->last_pos--;
+		stack->b[stack->len - i] = stack->b[stack->len - i - 1];
+		i++;
 	}
 	stack->b[0] = tmp;
 	if (flag == 0)

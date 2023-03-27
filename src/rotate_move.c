@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:53:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/22 16:24:04 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/27 18:35:11 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,13 +26,12 @@ void	ra(t_data *stack, int flag)
 
 	i = 0;
 	tmp = stack->a[0];
-	check_last_a(stack);
-	while (i < stack->last_pos)
+	while (i < stack->len)
 	{
 		stack->a[i] = stack->a[i + 1];
 		i++;
 	}
-	stack->a[stack->last_pos] = tmp;
+	stack->a[stack->len - 1] = tmp;
 	if (flag == 0)
 		ft_printf("ra\n");
 }
@@ -44,13 +43,12 @@ void	rb(t_data *stack, int flag)
 
 	i = 0;
 	tmp = stack->b[0];
-	check_last_b(stack);
-	while (i < stack->last_pos)
+	while (i < stack->len)
 	{
 		stack->b[i] = stack->b[i + 1];
 		i++;
 	}
-	stack->b[stack->last_pos] = tmp;
+	stack->b[stack->len - 1] = tmp;
 	if (flag == 0)
 		ft_printf("rb\n");
 }
