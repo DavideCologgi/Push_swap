@@ -6,22 +6,13 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 11:39:44 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/27 17:49:07 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:23:48 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	get_stack_len(int *stack)
-{
-	int	i;
-
-	i = 0;
-	i = (sizeof(*stack) / sizeof(int));
-	return (i);
-}
-
-void	lis_check(t_data *stack)
+void	lis_raw_check(t_data *stack)
 {
 	int	i;
 	int	j;
@@ -48,26 +39,57 @@ void	find_max_lis(t_data *stack)
 	int	i;
 
 	i = 0;
-	stack->lis_len = 0;
 	while (i < stack->len)
 	{
-		if (stack->dp[i] > stack->dp[stack->lis_len])
-			stack->lis_len = i;
+		if (stack->dp[i] > stack->dp[stack->lis_raw_len])
+			stack->lis_raw_len = i;
 		i++;
 	}
+}
+
+void	lis_raw_gen(t_data *stack)
+{
+	int	i;
+	int	j;
+
+	i = stack->lis_raw_len;
+	j = stack->dp[stack->lis_raw_len] - 1;
+	while (i >= 0)
+	{
+		stack->lis_raw[j] = stack->a[i];
+		i = stack->prev[i];
+		j--;
+	}
+}
+
+static int	get_lis_len(t_data *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->lis_raw_len)
+	{
+		if (stack->lis_raw[i] > stack->lis_raw[i + 1])
+		{
+			i++;
+			break ;
+		}
+		i++;
+	}
+	return (i);
 }
 
 void	lis_gen(t_data *stack)
 {
 	int	i;
-	int	j;
 
-	i = stack->lis_len;
-	j = stack->dp[stack->lis_len] - 1;
-	while (i >= 0)
+	i = 0;
+	stack->lis_len = get_lis_len(stack);
+	stack->lis = (int *)malloc(stack->lis_len * sizeof(int));
+	while (i < stack->lis_len)
 	{
-		stack->lis[j] = stack->a[i];
-		i = stack->prev[i];
-		j--;
+		stack->lis[i] = stack->lis_raw[i];
+		i++;
 	}
+	free (stack->lis_raw);
 }

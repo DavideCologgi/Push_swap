@@ -1,54 +1,61 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   reverserotate_move.c                               :+:      :+:    :+:   */
+/*   print_stack.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/20 12:55:46 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/28 11:38:17 by dcologgi         ###   ########.fr       */
+/*   Created: 2023/03/28 10:54:08 by dcologgi          #+#    #+#             */
+/*   Updated: 2023/03/28 12:37:03 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rra(t_data *stack, int flag)
+void	print_stack_a(t_data *stack)
 {
 	int	i;
-	int	tmp;
 
 	i = 0;
-	tmp = stack->a[stack->last_a];
-	while (i < stack->last_a)
+	while (i <= stack->last_a)
 	{
-		stack->a[stack->last_a - i] = stack->a[stack->last_a - i - 1];
+		ft_printf("%d\n", stack->a[i]);
 		i++;
 	}
-	stack->a[0] = tmp;
-	if (flag == 0)
-		ft_printf("rra\n");
 }
 
-void	rrb(t_data *stack, int flag)
+void	print_stack_b(t_data *stack)
 {
 	int	i;
-	int	tmp;
 
 	i = 0;
-	tmp = stack->b[stack->last_b];
 	while (i < stack->last_b)
 	{
-		stack->b[stack->last_b - i] = stack->b[stack->last_b - i - 1];
+		ft_printf("%d\n", stack->b[i]);
 		i++;
 	}
-	stack->b[0] = tmp;
-	if (flag == 0)
-		ft_printf("rrb\n");
 }
 
-void	rrr(t_data *stack)
+void	print_lis(t_data *stack)
 {
-	rra(stack, 1);
-	rrb(stack, 1);
-	ft_printf("rrr\n");
+	int	i;
+
+	i = 0;
+	while (i < stack->lis_len)
+	{
+		ft_printf("%d\n", stack->lis[i]);
+		i++;
+	}
+}
+
+void	print_lis_raw(t_data *stack)
+{
+	int	i;
+
+	i = 0;
+	while (i < stack->lis_raw_len)
+	{
+		ft_printf("%d\n", stack->lis_raw[i]);
+		i++;
+	}
 }

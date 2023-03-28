@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:39:01 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/21 11:01:22 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/28 14:53:30 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,48 +49,26 @@ void	ss(t_data *stack)
 
 void	pa(t_data *stack)
 {
-	int	i;
-
-	if (stack->b[0] != 0)
+	if (stack->last_b >= 0)
 	{
-		check_last_a(stack);
-		while (stack->last_pos >= 0)
-		{
-			stack->a[stack->last_pos + 1] = stack->a[stack->last_pos];
-			stack->last_pos--;
-		}
+		rra(stack, 1);
 		stack->a[0] = stack->b[0];
-		check_last_b(stack);
-		i = 0;
-		while (i < stack->last_pos)
-		{
-			stack->b[i] = stack->b[i + 1];
-			i++;
-		}
-		stack->b[i] = 0;
+		stack->last_a++;
+		rb(stack, 1);
+		stack->last_b--;
+		ft_printf("pa\n");
 	}
 }
 
 void	pb(t_data *stack)
 {
-	int	i;
-
-	if (stack->a[0] != 0)
+	if (stack->last_a >= 0)
 	{
-		check_last_b(stack);
-		while (stack->last_pos >= 0)
-		{
-			stack->b[stack->last_pos + 1] = stack->b[stack->last_pos];
-			stack->last_pos--;
-		}
+		rrb(stack, 1);
 		stack->b[0] = stack->a[0];
-		check_last_a(stack);
-		i = 0;
-		while (i < stack->last_pos)
-		{
-			stack->a[i] = stack->a[i + 1];
-			i++;
-		}
-		stack->a[i] = 0;
+		stack->last_b++;
+		ra(stack, 1);
+		stack->last_a--;
+		ft_printf("pb\n");
 	}
 }

@@ -6,62 +6,21 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:57:55 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/27 18:27:47 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/28 11:12:59 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
-
-// Funzione che controlla se lo stack e' stato creato correttamente
-void	print_stack(t_data *stack)
-{
-	int	i;
-
-	i = 0;
-	while (i < stack->len)
-	{
-		ft_printf("%d\n", stack->b[i]);
-		i++;
-	}
-}
 
 void	fill_stack_a(t_data *stack, char **argv)
 {
 	int	i;
 
 	i = 0;
-	stack->a = calloc(sizeof(int), stack->len);
-	stack->b = stack->a;
 	while (argv[i + 1])
 	{
 		stack->a[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	//print_stack(stack);
-}
-
-void	check_last_a(t_data *stack)
-{
-	int	i;
-
-	stack->last_pos = 0;
-	i = 0;
-	while (i < stack->len)
-	{
-		stack->last_pos++;
-		i++;
-	}
-}
-
-void	check_last_b(t_data *stack)
-{
-	int	i;
-
-	stack->last_pos = 0;
-	i = 0;
-	while (i < stack->len)
-	{
-		stack->last_pos++;
-		i++;
-	}
+	//print_stack_a(stack);
 }
