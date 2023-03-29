@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:30:47 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/29 15:15:23 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/29 17:35:11 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -83,7 +83,6 @@ void	sort_5(t_data *stack)
 	pa(stack);
 	pa(stack);
 	ra(stack, 0);
-	//print_stack_a(stack);
 }
 
 void	simple_case(t_data *stack)

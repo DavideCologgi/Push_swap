@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/29 14:06:37 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:31:22 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,6 @@ int		ft_atoi(const char *str);
 int		check_better_rot_a(t_data *stack, int pos);
 int		check_input(t_data *stack, char **argv);
 int		check_if_double(int nb, int	*array, int pos);
-void	check_sorted_input(t_data *stack);
 void	sa(t_data *stack, int flag);
 void	sb(t_data *stack, int flag);
 void	ss(t_data *stack);
