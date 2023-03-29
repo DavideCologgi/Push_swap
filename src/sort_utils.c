@@ -1,48 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lis.c                                              :+:      :+:    :+:   */
+/*   sort_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 09:39:33 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/29 10:38:48 by dcologgi         ###   ########.fr       */
+/*   Created: 2023/03/29 12:45:46 by dcologgi          #+#    #+#             */
+/*   Updated: 2023/03/29 14:27:09 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_lis(t_data *stack)
+void	find_min(t_data *stack)
 {
 	int	i;
 
-	i = 0;
-	while (i < stack->lis_len)
+	i = 1;
+	stack->min = stack->a[0];
+	while (i <= stack->last_a)
 	{
-		while (stack->lis[i] != stack->a[0])
-			ra(stack, 0);
-		pb(stack);
+		if (stack->a[i] < stack->min)
+			stack->min = stack->a[i];
 		i++;
 	}
 }
 
-void	lis_finder(t_data *stack)
+void	find_max(t_data *stack)
 {
 	int	i;
 
-	i = 0;
-	while (i < stack->len)
+	i = 1;
+	stack->max = stack->a[0];
+	while (i <= stack->last_a)
 	{
-		stack->lis_raw[i] = 0;
-		stack->dp[i] = 1;
-		stack->prev[i] = -1;
+		if (stack->a[i] > stack->max)
+			stack->max = stack->a[i];
 		i++;
 	}
-	lis_raw_check(stack);
-	find_max_lis(stack);
-	lis_raw_gen(stack);
-	lis_gen(stack);
-	push_lis(stack);
-	stack->lis_used = 1;
-	//print_stack_b(stack);
 }

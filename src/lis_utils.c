@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/27 11:39:44 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/28 11:23:48 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/29 10:32:56 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,5 +91,4 @@ void	lis_gen(t_data *stack)
 		stack->lis[i] = stack->lis_raw[i];
 		i++;
 	}
-	free (stack->lis_raw);
 }

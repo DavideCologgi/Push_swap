@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/28 11:33:16 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/29 14:06:37 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,17 +16,20 @@
 # include "../ft_printf/ft_printf.h"
 
 typedef struct s_data{
-	int		*a;
-	int		*b;
-	int		*lis_raw;
-	int		*lis;
-	int		*dp;
-	int		*prev;
-	int		len;
-	int		lis_raw_len;
-	int		lis_len;
-	int		last_a;
-	int		last_b;
+	int	*a;
+	int	*b;
+	int	*lis_raw;
+	int	*lis;
+	int	*dp;
+	int	*prev;
+	int	len;
+	int	lis_raw_len;
+	int	lis_len;
+	int	lis_used;
+	int	last_a;
+	int	last_b;
+	int	min;
+	int	max;
 }	t_data;
 
 int		ft_is_digit(char c);
@@ -34,6 +37,7 @@ int		ft_atoi(const char *str);
 int		check_better_rot_a(t_data *stack, int pos);
 int		check_input(t_data *stack, char **argv);
 int		check_if_double(int nb, int	*array, int pos);
+void	check_sorted_input(t_data *stack);
 void	sa(t_data *stack, int flag);
 void	sb(t_data *stack, int flag);
 void	ss(t_data *stack);
@@ -48,12 +52,20 @@ void	rrr(t_data *stack);
 void	check_last_a(t_data *stack);
 void	check_last_b(t_data *stack);
 void	fill_stack_a(t_data *stack, char **argv);
-void	find_lis(t_data *stack);
+void	lis_finder(t_data *stack);
 void	keep_lis(t_data *stack);
 void	lis_raw_check(t_data *stack);
 void	find_max_lis(t_data *stack);
 void	lis_raw_gen(t_data *stack);
 void	lis_gen(t_data *stack);
+void	simple_case(t_data *stack);
+void	sort_2(t_data *stack);
+void	sort_3(t_data *stack);
+void	sort_4(t_data *stack);
+void	sort_5(t_data *stack);
+void	find_min(t_data *stack);
+void	find_max(t_data *stack);
+void	ft_cleaner(t_data *stack);
 
 void	print_stack_a(t_data *stack);
 void	print_stack_b(t_data *stack);

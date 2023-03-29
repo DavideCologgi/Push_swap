@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 10:57:55 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/28 11:12:59 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/28 15:48:57 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,5 +22,4 @@ void	fill_stack_a(t_data *stack, char **argv)
 		stack->a[i] = ft_atoi(argv[i + 1]);
 		i++;
 	}
-	//print_stack_a(stack);
 }

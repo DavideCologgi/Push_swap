@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:39:01 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/28 14:53:30 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/03/29 15:03:29 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,9 +49,16 @@ void	ss(t_data *stack)
 
 void	pa(t_data *stack)
 {
+	int	i;
+
+	i = 0;
 	if (stack->last_b >= 0)
 	{
-		rra(stack, 1);
+		while (i <= stack->last_a)
+		{
+			stack->a[stack->last_a - i + 1] = stack->a[stack->last_a - i];
+			i++;
+		}
 		stack->a[0] = stack->b[0];
 		stack->last_a++;
 		rb(stack, 1);
@@ -62,9 +69,16 @@ void	pa(t_data *stack)
 
 void	pb(t_data *stack)
 {
+	int	i;
+
+	i = 0;
 	if (stack->last_a >= 0)
 	{
-		rrb(stack, 1);
+		while (i <= stack->last_b)
+		{
+			stack->b[stack->last_b - i + 1] = stack->b[stack->last_b - i];
+			i++;
+		}
 		stack->b[0] = stack->a[0];
 		stack->last_b++;
 		ra(stack, 1);
