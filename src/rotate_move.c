@@ -6,17 +6,38 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:53:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/29 14:48:22 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/03 16:21:54 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	check_better_rot_a(t_data *stack, int pos)
+void	check_better_rot_a(t_data *stack, int pos)
 {
 	if (pos <= (stack->last_a / 2))
-		return (1);
-	return (0);
+		ra(stack, 0);
+	else
+		rra(stack, 0);
+}
+
+void	check_better_rot_b(t_data *stack)
+{
+	int	next_lower;
+	int	pos;
+	int	i;
+
+	next_lower = stack->b[0];
+	pos = 0;
+	i = 0;
+	while (i < stack->last_b)
+	{
+		if (stack->b[i] < stack->a[0] && stack->b[i] > next_lower)
+		{
+			next_lower = stack->b[i];
+			pos = i;
+		}
+		i++;
+	}
 }
 
 void	ra(t_data *stack, int flag)

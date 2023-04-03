@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/29 17:32:06 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/03 12:22:32 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ static void	init(t_data *stack, int argc)
 	stack->lis_used = 0;
 }
 
- static int	check_sorted_input(t_data *stack)
+static int	check_sorted_input(t_data *stack)
 {
 	int	i;
 
@@ -67,5 +67,6 @@ int	main(int argc, char **argv)
 	if (stack.len <= 5)
 		simple_case(&stack);
 	lis_finder(&stack);
+	complex_case(&stack);
 	ft_cleaner(&stack);
 }

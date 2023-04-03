@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 09:39:33 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/29 10:38:48 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/03 15:51:35 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,10 +39,9 @@ void	lis_finder(t_data *stack)
 		i++;
 	}
 	lis_raw_check(stack);
-	find_max_lis(stack);
+	find_max_pos_lis(stack);
 	lis_raw_gen(stack);
 	lis_gen(stack);
 	push_lis(stack);
 	stack->lis_used = 1;
-	//print_stack_b(stack);
 }
