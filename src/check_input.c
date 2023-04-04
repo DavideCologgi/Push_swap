@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:39:53 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/27 13:39:56 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/04 11:49:39 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 void	print_error(void)
 {
 	ft_printf("Error\n");
-	exit(0);
+	exit(1);
 }
 
 int	ft_is_digit(char c)

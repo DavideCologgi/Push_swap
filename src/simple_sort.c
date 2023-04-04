@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort.c                                             :+:      :+:    :+:   */
+/*   simple_sort.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:30:47 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/03 11:26:38 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/04 09:07:17 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,18 +20,18 @@ void	sort_2(t_data *stack)
 
 void	sort_3(t_data *stack)
 {
-	if (stack->a[0] > stack->a[1] && stack->a[2] > stack->a[0]) // 2 1 3
+	if (stack->a[0] > stack->a[1] && stack->a[2] > stack->a[0])
 		sa(stack, 0);
-	if (stack->a[0] > stack->a[1] && stack->a[2] < stack->a[0]) // 3 1 2
+	if (stack->a[0] > stack->a[1] && stack->a[2] < stack->a[0])
 		ra(stack, 0);
-	if (stack->a[0] < stack->a[1] && stack->a[0] > stack->a[2]) // 2 3 1
+	if (stack->a[0] < stack->a[1] && stack->a[0] > stack->a[2])
 		rra(stack, 0);
-	if (stack->a[0] > stack->a[1] && stack->a[1] > stack->a[2]) // 3 2 1
+	if (stack->a[0] > stack->a[1] && stack->a[1] > stack->a[2])
 	{
 		sa(stack, 0);
 		rra(stack, 0);
 	}
-	if (stack->a[0] < stack->a[2] && stack->a[1] > stack->a[2]) // 1 3 2
+	if (stack->a[0] < stack->a[2] && stack->a[1] > stack->a[2])
 	{
 		sa(stack, 0);
 		ra(stack, 0);

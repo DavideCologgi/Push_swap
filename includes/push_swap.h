@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/03 16:20:42 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/04 15:35:15 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,15 +77,18 @@ void	find_max(t_data *stack);
 void	push_min(t_data *stack);
 void	push_max(t_data *stack);
 void	check_better_rot_a(t_data *stack, int pos);
+void	check_better_rot_b(t_data *stack);
 
+int		get_min(t_data *stack);
+int		get_max(t_data *stack);
+int		find_next_minor(t_data *stack, int nb);
 void	complex_case(t_data *stack);
 void	find_best_nb_to_push(t_data *stack);
 void	combo_move(t_data *stack);
-int		find_next_minor(t_data *stack);
 void	rrr_move(t_data *stack);
 void	rr_move(t_data *stack);
-void	move1(t_data *stack);
-void	move2(t_data *stack);
+void	rra_rb_move(t_data *stack);
+void	ra_rrb_move(t_data *stack);
 
 void	ft_cleaner(t_data *stack);
 
