@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/04 15:07:25 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/05 10:08:20 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,8 +67,6 @@ int	main(int argc, char **argv)
 	if (stack.len <= 5)
 		simple_case(&stack);
 	lis_finder(&stack);
-	print_stack_b(&stack);
-	ft_printf("-----------\n");
 	complex_case(&stack);
 	ft_cleaner(&stack);
 }

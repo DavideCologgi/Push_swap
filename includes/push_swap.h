@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/04 15:35:15 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/05 14:46:39 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,12 +36,15 @@ typedef struct s_data{
 	int	max;
 	int	max_pos;
 
-	int	next_min;
-	int	next_minor_pos;
-	int	num_moves;
-	int	min_moves;
-	int	nb_to_push;
-	int	nb_pos;
+	int	a_moves;
+	int	b_moves;
+	int	tot_moves;
+	int	best_moves;
+	int	a_pos;
+	int	b_pos;
+	int	best_pos_a;
+	int	best_pos_b;
+	int	best_nb;
 }	t_data;
 
 int		ft_is_digit(char c);
@@ -79,12 +82,12 @@ void	push_max(t_data *stack);
 void	check_better_rot_a(t_data *stack, int pos);
 void	check_better_rot_b(t_data *stack);
 
-int		get_min(t_data *stack);
 int		get_max(t_data *stack);
-int		find_next_minor(t_data *stack, int nb);
+void	get_min(t_data *stack);
 void	complex_case(t_data *stack);
 void	find_best_nb_to_push(t_data *stack);
-void	combo_move(t_data *stack);
+void	find_where_to_push(t_data *stack, int nb);
+void	push_nb(t_data *stack);
 void	rrr_move(t_data *stack);
 void	rr_move(t_data *stack);
 void	rra_rb_move(t_data *stack);

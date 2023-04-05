@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:18:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/04 16:39:28 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:16:31 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,23 +32,20 @@ int	get_max(t_data *stack)
 	return (max);
 }
 
-int	get_min(t_data *stack)
+void	get_min(t_data *stack)
 {
 	int	i;
-	int	min;
 
 	i = 0;
-	stack->next_minor_pos = 0;
-	min = stack->b[0];
+	stack->min_pos = 0;
+	stack->min = stack->b[0];
 	while (i < stack->last_b)
 	{
-		i++;
-		if (min > stack->b[i])
+		if (stack->min > stack->b[i])
 		{
-			min = stack->b[i];
-			stack->next_minor_pos = i;
+			stack->min = stack->b[i];
+			stack->min_pos = i;
 		}
+		i++;
 	}
-	if (nb < stack->min)
-	return (min);
 }

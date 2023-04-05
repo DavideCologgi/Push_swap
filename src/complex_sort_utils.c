@@ -6,21 +6,27 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:08:58 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/04 15:20:43 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/04/05 15:10:50 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rrr_move(t_data *stack)
+void	rrr_move(t_data *stack) //
 {
 	int	a_rot;
 	int	b_rot;
 	int	n_rot;
+	int	max_b;
 
-	a_rot = stack->last_a - stack->nb_pos + 1;
-	b_rot = stack->last_b - stack->next_minor_pos + 1;
-	if (a_rot > b_rot)
+	max_b = get_max(stack);
+	get_min(stack);
+	a_rot = stack->last_a - stack->best_pos_a + 1;
+	if (stack->best_nb > max_b || stack->best_nb < stack->min)
+		b_rot = stack->last_b - stack->best_pos_b - 1;
+	else
+		b_rot = stack->last_b - stack->best_pos_b;
+	if (a_rot >= b_rot)
 	{
 		n_rot = b_rot;
 		while (b_rot-- > 0)
@@ -38,15 +44,20 @@ void	rrr_move(t_data *stack)
 	}
 }
 
-void	rr_move(t_data *stack)
+void	rr_move(t_data *stack) //
 {
 	int	a_rot;
 	int	b_rot;
 	int	n_rot;
+	int	max_b;
 
-	a_rot = stack->nb_pos;
-	b_rot = stack->next_minor_pos;
-	if (a_rot > b_rot)
+	max_b = get_max(stack);
+	a_rot = stack->best_pos_a;
+	if (stack->best_nb > max_b || stack->best_nb < stack->min)
+		b_rot = stack->best_pos_b;
+	else
+		b_rot = stack->best_pos_b;
+	if (a_rot >= b_rot)
 	{
 		n_rot = b_rot;
 		while (b_rot-- > 0)
@@ -68,9 +79,14 @@ void	rra_rb_move(t_data *stack)
 {
 	int	a_rot;
 	int	b_rot;
+	int	max_b;
 
-	a_rot = stack->last_a - stack->nb_pos + 1;
-	b_rot = stack->next_minor_pos;
+	max_b = get_max(stack);
+	a_rot = stack->last_a - stack->best_pos_a + 1;
+	if (stack->best_nb > max_b || stack->best_nb < stack->min)
+		b_rot = stack->best_pos_b;
+	else
+		b_rot = stack->best_pos_b + 1;
 	while (a_rot-- > 0)
 		rra(stack, 0);
 	while (b_rot-- > 0)
@@ -81,9 +97,14 @@ void	ra_rrb_move(t_data *stack)
 {
 	int	a_rot;
 	int	b_rot;
+	int	max_b;
 
-	a_rot = stack->nb_pos;
-	b_rot = stack->last_b - stack->next_minor_pos + 1;
+	max_b = get_max(stack);
+	a_rot = stack->best_pos_a;
+	if (stack->best_nb > max_b || stack->best_nb < stack->min)
+		b_rot = stack->last_b - stack->best_pos_b - 1;
+	else
+		b_rot = stack->last_b - stack->best_pos_b;
 	while (a_rot-- > 0)
 		ra(stack, 0);
 	while (b_rot-- > 0)
