@@ -6,13 +6,13 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:08:58 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 12:31:52 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:29:42 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	rrr_move(t_data *stack) //
+void	rrr_move(t_data *stack)
 {
 	int	n_rot;
 
@@ -34,7 +34,7 @@ void	rrr_move(t_data *stack) //
 	}
 }
 
-void	rr_move(t_data *stack) //
+void	rr_move(t_data *stack)
 {
 	int	n_rot;
 

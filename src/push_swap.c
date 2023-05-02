@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 14:20:53 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:52:40 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,9 +24,8 @@ void	ft_cleaner(t_data *stack)
 	exit (0);
 }
 
-static void	init(t_data *stack, int argc)
+void	init(t_data *stack)
 {
-	stack->len = argc - 1;
 	stack->a = calloc(sizeof(int), stack->len);
 	stack->b = calloc(sizeof(int), stack->len);
 	stack->lis_raw = (int *)malloc(stack->len * sizeof(int));
@@ -59,10 +58,16 @@ int	main(int argc, char **argv)
 
 	if (argc < 2)
 		return (0);
-	init(&stack, argc);
-	if (check_input(&stack, argv) == 0)
-		return (0);
-	fill_stack_a(&stack, argv);
+	if (argc == 2)
+		string_input(&stack, argv[1]);
+	else
+	{
+		stack.len = argc - 1;
+		init(&stack);
+		if (check_input(&stack, argv) == 0)
+			return (0);
+		fill_stack_a(&stack, argv);
+	}
 	if (check_sorted_input(&stack) == 0)
 		return (0);
 	if (stack.len <= 5)
@@ -70,6 +75,6 @@ int	main(int argc, char **argv)
 	lis_finder(&stack);
 	complex_case(&stack);
 	print_stack_a(&stack);
-	printf("Mosse effettuate: %d\n", stack.move_counter);
+	ft_printf("Mosse effettuate: %d\n", stack.move_counter);
 	ft_cleaner(&stack);
 }

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/08 09:16:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/03/20 12:30:29 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 15:32:43 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@
 # include<stdlib.h>
 # include<stdio.h>
 # include<unistd.h>
+# include<string.h>
 
 int		ft_putchar(int c);
 int		ft_putstr(char *s);

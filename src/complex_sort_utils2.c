@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/04 15:18:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 11:42:44 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 17:50:58 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,4 +46,35 @@ void	get_min(t_data *stack)
 		}
 		i++;
 	}
+}
+
+void	nb_is_between(t_data *stack, int nb)
+{
+	int	i;
+	int	x;
+	int	min_diff;
+
+	i = 0;
+	x = 0;
+	min_diff = stack->max;
+	while (i < stack->last_b)
+	{
+		x = nb - stack->b[i];
+		if (x > 0 && x < min_diff)
+		{
+			stack->b_pos = i;
+			min_diff = x;
+		}
+		i++;
+	}
+}
+
+void	assign_best_nb(t_data *stack, int a, int b, int i)
+{
+	stack->a_moves = a;
+	stack->b_moves = b;
+	stack->best_moves = stack->tot_moves;
+	stack->best_pos_a = stack->a_pos;
+	stack->best_pos_b = stack->b_pos;
+	stack->best_nb = stack->a[i];
 }
