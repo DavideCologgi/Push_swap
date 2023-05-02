@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/21 09:39:33 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/03 15:51:35 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 14:21:24 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,4 +44,9 @@ void	lis_finder(t_data *stack)
 	lis_gen(stack);
 	push_lis(stack);
 	stack->lis_used = 1;
+	printf("-----------\n");
+	print_stack_b(stack);
+	printf("-----------\n");
+	print_stack_a(stack);
+	printf("-----------\n");
 }

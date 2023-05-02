@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/05 10:08:20 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 14:20:53 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,6 +35,7 @@ static void	init(t_data *stack, int argc)
 	stack->last_a = stack->len - 1;
 	stack->last_b = 0;
 	stack->lis_used = 0;
+	stack->move_counter = 0;
 }
 
 static int	check_sorted_input(t_data *stack)
@@ -68,5 +69,7 @@ int	main(int argc, char **argv)
 		simple_case(&stack);
 	lis_finder(&stack);
 	complex_case(&stack);
+	print_stack_a(&stack);
+	printf("Mosse effettuate: %d\n", stack.move_counter);
 	ft_cleaner(&stack);
 }

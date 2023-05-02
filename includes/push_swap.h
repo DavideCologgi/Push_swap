@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/05 14:46:39 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 14:08:17 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ typedef struct s_data{
 
 	int	last_a;
 	int	last_b;
+	int	move_counter;
 
 	int	min;
 	int	min_pos;
@@ -82,7 +83,7 @@ void	push_max(t_data *stack);
 void	check_better_rot_a(t_data *stack, int pos);
 void	check_better_rot_b(t_data *stack);
 
-int		get_max(t_data *stack);
+void	get_max(t_data *stack);
 void	get_min(t_data *stack);
 void	complex_case(t_data *stack);
 void	find_best_nb_to_push(t_data *stack);

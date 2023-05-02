@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 11:53:28 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/04 11:05:39 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/02 14:11:43 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,10 @@ void	ra(t_data *stack, int flag)
 	}
 	stack->a[stack->last_a] = tmp;
 	if (flag == 0)
+	{
 		ft_printf("ra\n");
+		stack->move_counter++;
+	}
 }
 
 void	rb(t_data *stack, int flag)
@@ -71,7 +74,10 @@ void	rb(t_data *stack, int flag)
 	}
 	stack->b[stack->last_b - 1] = tmp;
 	if (flag == 0)
+	{
 		ft_printf("rb\n");
+		stack->move_counter++;
+	}
 }
 
 void	rr(t_data *stack)
@@ -79,4 +85,5 @@ void	rr(t_data *stack)
 	ra(stack, 1);
 	rb(stack, 1);
 	ft_printf("rr\n");
+	stack->move_counter++;
 }
