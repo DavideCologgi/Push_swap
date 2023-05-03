@@ -1,47 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   lis.c                                              :+:      :+:    :+:   */
+/*   checker_utils.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/21 09:39:33 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 17:30:59 by dcologgi         ###   ########.fr       */
+/*   Created: 2023/05/03 10:43:42 by dcologgi          #+#    #+#             */
+/*   Updated: 2023/05/03 10:44:12 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	push_lis(t_data *stack)
+int	ft_strcmp(char *s1, char *s2)
 {
 	int	i;
 
 	i = 0;
-	while (i < stack->lis_len)
+	if (!s1 || !s2)
+		return (0);
+	while (s1[i] && s2[i])
 	{
-		while (stack->lis[i] != stack->a[0])
-			ra(stack, 0);
-		pb(stack);
+		if (s1[i] != s2[i])
+			return (0);
 		i++;
 	}
+	return (1);
 }
 
-void	lis_finder(t_data *stack)
+void	wrong_input(t_data *stack)
 {
-	int	i;
-
-	i = 0;
-	while (i < stack->len)
-	{
-		stack->lis_raw[i] = 0;
-		stack->dp[i] = 1;
-		stack->prev[i] = -1;
-		i++;
-	}
-	lis_raw_check(stack);
-	find_max_pos_lis(stack);
-	lis_raw_gen(stack);
-	lis_gen(stack);
-	push_lis(stack);
-	stack->lis_used = 1;
+	if (stack->a)
+		free (stack->a);
+	if (stack->b)
+		free (stack->b);
+	print_error();
 }

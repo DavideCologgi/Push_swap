@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 13:08:58 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 17:29:42 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:31:32 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	rrr_move(t_data *stack)
 	{
 		n_rot = stack->b_moves;
 		while (stack->b_moves-- > 0)
-			rrr(stack);
+			rrr(stack, 0);
 		while (n_rot++ != stack->a_moves)
 			rra(stack, 0);
 	}
@@ -28,7 +28,7 @@ void	rrr_move(t_data *stack)
 	{
 		n_rot = stack->a_moves;
 		while (stack->a_moves-- > 0)
-			rrr(stack);
+			rrr(stack, 0);
 		while (n_rot++ != stack->b_moves)
 			rrb(stack, 0);
 	}
@@ -42,7 +42,7 @@ void	rr_move(t_data *stack)
 	{
 		n_rot = stack->b_moves;
 		while (stack->b_moves-- > 0)
-			rr(stack);
+			rr(stack, 0);
 		while (n_rot++ != stack->a_moves)
 			ra(stack, 0);
 	}
@@ -50,7 +50,7 @@ void	rr_move(t_data *stack)
 	{
 		n_rot = stack->a_moves;
 		while (stack->a_moves-- > 0)
-			rr(stack);
+			rr(stack, 0);
 		while (n_rot++ != stack->b_moves)
 			rb(stack, 0);
 	}

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:23:50 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 17:50:34 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:04:41 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,24 +18,24 @@ void	push_nb(t_data *stack)
 		&& (stack->best_pos_b > ((stack->last_b - 1) / 2)))
 	{
 		rrr_move(stack);
-		pb(stack);
+		pb(stack, 0);
 	}
 	else if ((stack->best_pos_a <= stack->last_a / 2)
 		&& (stack->best_pos_b <= ((stack->last_b - 1) / 2)))
 	{
 		rr_move(stack);
-		pb(stack);
+		pb(stack, 0);
 	}
 	else if ((stack->best_pos_a > stack->last_a / 2)
 		&& (stack->best_pos_b <= ((stack->last_b - 1) / 2)))
 	{
 		rra_rb_move(stack);
-		pb(stack);
+		pb(stack, 0);
 	}
 	else
 	{
 		ra_rrb_move(stack);
-		pb(stack);
+		pb(stack, 0);
 	}
 }
 
@@ -69,16 +69,40 @@ void	find_best_nb_to_push(t_data *stack)
 	while (i <= stack->last_a)
 	{
 		stack->a_pos = i;
-		if (stack->a_pos > (stack->last_a / 2))
-			a = (stack->last_a - stack->a_pos + 1);
-		else
-			a = stack->a_pos;
 		find_where_to_push(stack, stack->a[i]);
-		if (stack->b_pos > ((stack->last_b - 1) / 2))
+		if (stack->a_pos > (stack->last_a / 2)
+			&& (stack->b_pos > ((stack->last_b - 1) / 2)))
+		{
+			a = (stack->last_a - stack->a_pos + 1);
 			b = stack->last_b - stack->b_pos;
-		else
+			if (a > b)
+				stack->tot_moves = a;
+			else
+				stack->tot_moves = b;
+		}
+		else if (stack->a_pos <= (stack->last_a / 2)
+			&& (stack->b_pos <= ((stack->last_b - 1) / 2)))
+		{
+			a = stack->a_pos;
 			b = stack->b_pos;
-		stack->tot_moves = a + b;
+			if (a > b)
+				stack->tot_moves = a;
+			else
+				stack->tot_moves = b;
+		}
+		else if (stack->a_pos > (stack->last_a / 2)
+			&& (stack->b_pos <= ((stack->last_b - 1) / 2)))
+		{
+			a = (stack->last_a - stack->a_pos + 1);
+			b = stack->b_pos;
+			stack->tot_moves = a + b;
+		}
+		else
+		{
+			a = stack->a_pos;
+			b = stack->last_b - stack->b_pos;
+			stack->tot_moves = a + b;
+		}
 		if (stack->tot_moves < stack->best_moves)
 			assign_best_nb(stack, a, b, i);
 		i++;
@@ -104,5 +128,5 @@ void	complex_case(t_data *stack)
 			rb(stack, 0);
 	}
 	while (stack->last_b > 0)
-		pa(stack);
+		pa(stack, 0);
 }

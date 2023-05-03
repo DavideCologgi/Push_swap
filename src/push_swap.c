@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:35:06 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 17:52:40 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:48:54 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,6 @@ void	ft_cleaner(t_data *stack)
 {
 	free (stack->a);
 	free (stack->b);
-	free (stack->lis_raw);
-	free (stack->dp);
-	free (stack->prev);
-	if (stack->lis_used == 1)
-		free (stack->lis);
 	exit (0);
 }
 
@@ -28,12 +23,8 @@ void	init(t_data *stack)
 {
 	stack->a = calloc(sizeof(int), stack->len);
 	stack->b = calloc(sizeof(int), stack->len);
-	stack->lis_raw = (int *)malloc(stack->len * sizeof(int));
-	stack->dp = (int *)malloc(stack->len * sizeof(int));
-	stack->prev = (int *)malloc(stack->len * sizeof(int));
 	stack->last_a = stack->len - 1;
 	stack->last_b = 0;
-	stack->lis_used = 0;
 	stack->move_counter = 0;
 }
 
@@ -72,9 +63,10 @@ int	main(int argc, char **argv)
 		return (0);
 	if (stack.len <= 5)
 		simple_case(&stack);
-	lis_finder(&stack);
+	pb(&stack, 0);
+	pb(&stack, 0);
+	if (stack.b[0] < stack.b[1])
+		sb(&stack, 0);
 	complex_case(&stack);
-	print_stack_a(&stack);
-	ft_printf("Mosse effettuate: %d\n", stack.move_counter);
 	ft_cleaner(&stack);
 }

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:39:01 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 14:13:06 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:25:44 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,15 +46,16 @@ void	sb(t_data *stack, int flag)
 	}
 }
 
-void	ss(t_data *stack)
+void	ss(t_data *stack, int flag)
 {
 	sa(stack, 1);
 	sb(stack, 1);
-	ft_printf("ss\n");
+	if (flag == 0)
+		ft_printf("ss\n");
 	stack->move_counter++;
 }
 
-void	pa(t_data *stack)
+void	pa(t_data *stack, int flag)
 {
 	int	i;
 
@@ -70,12 +71,13 @@ void	pa(t_data *stack)
 		stack->last_a++;
 		rb(stack, 1);
 		stack->last_b--;
-		ft_printf("pa\n");
+		if (flag == 0)
+			ft_printf("pa\n");
 		stack->move_counter++;
 	}
 }
 
-void	pb(t_data *stack)
+void	pb(t_data *stack, int flag)
 {
 	int	i;
 
@@ -91,7 +93,8 @@ void	pb(t_data *stack)
 		stack->last_b++;
 		ra(stack, 1);
 		stack->last_a--;
-		ft_printf("pb\n");
+		if (flag == 0)
+			ft_printf("pb\n");
 		stack->move_counter++;
 	}
 }

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   sort_utils.c                                       :+:      :+:    :+:   */
+/*   simple_sort_utils.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 12:45:46 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/03 11:26:21 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:30:29 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,7 +65,7 @@ void	push_max(t_data *stack)
 	{
 		if (stack->a[0] == stack->max)
 		{
-			pb(stack);
+			pb(stack, 0);
 			break ;
 		}
 		else
@@ -86,7 +86,7 @@ void	push_min(t_data *stack)
 	{
 		if (stack->a[0] == stack->min)
 		{
-			pb(stack);
+			pb(stack, 0);
 			break ;
 		}
 		else

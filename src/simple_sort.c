@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/29 09:30:47 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/04/04 09:07:17 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:30:39 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ void	sort_4(t_data *stack)
 	while (i < stack->len)
 	{
 		if (stack->a[0] == stack->min)
-			pb(stack);
+			pb(stack, 0);
 		else
 		{
 			if (stack->last_a > 2)
@@ -56,7 +56,7 @@ void	sort_4(t_data *stack)
 		i++;
 	}
 	sort_3(stack);
-	pa(stack);
+	pa(stack, 0);
 }
 
 void	sort_5(t_data *stack)
@@ -78,8 +78,8 @@ void	sort_5(t_data *stack)
 		sb(stack, 0);
 	}
 	sort_3(stack);
-	pa(stack);
-	pa(stack);
+	pa(stack, 0);
+	pa(stack, 0);
 	ra(stack, 0);
 }
 
