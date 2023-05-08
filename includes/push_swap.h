@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/04 16:01:27 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:19:51 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,7 @@ void	case1(t_data *stack);
 void	case2(t_data *stack);
 void	case3(t_data *stack);
 void	case4(t_data *stack);
-void	assign_best_nb(t_data *stack, int a, int b, int i);
+void	assign_best_nb(t_data *stack, int i);
 
 // Funzione che libera la memoria
 void	ft_cleaner(t_data *stack);

@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/03 12:23:50 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/08 14:00:38 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/08 14:20:28 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,51 +52,25 @@ void	find_where_to_push(t_data *stack, int nb)
 void	find_best_nb_to_push(t_data *stack)
 {
 	int	i;
-	int	a;
-	int	b;
 
 	i = 0;
-	a = 0;
-	b = 0;
 	while (i <= stack->last_a)
 	{
 		stack->a_pos = i;
 		find_where_to_push(stack, stack->a[i]);
 		if (stack->a_pos > (stack->last_a / 2)
 			&& (stack->b_pos > ((stack->last_b - 1) / 2)))
-		{
-			a = (stack->last_a - stack->a_pos + 1);
-			b = stack->last_b - stack->b_pos;
-			if (a > b)
-				stack->tot_moves = a;
-			else
-				stack->tot_moves = b;
-		}
+			case1(stack);
 		else if (stack->a_pos <= (stack->last_a / 2)
 			&& (stack->b_pos <= ((stack->last_b - 1) / 2)))
-		{
-			a = stack->a_pos;
-			b = stack->b_pos;
-			if (a > b)
-				stack->tot_moves = a;
-			else
-				stack->tot_moves = b;
-		}
+			case2(stack);
 		else if (stack->a_pos > (stack->last_a / 2)
 			&& (stack->b_pos <= ((stack->last_b - 1) / 2)))
-		{
-			a = (stack->last_a - stack->a_pos + 1);
-			b = stack->b_pos;
-			stack->tot_moves = a + b;
-		}
+			case3(stack);
 		else
-		{
-			a = stack->a_pos;
-			b = stack->last_b - stack->b_pos;
-			stack->tot_moves = a + b;
-		}
+			case4(stack);
 		if (stack->tot_moves < stack->best_moves)
-			assign_best_nb(stack, a, b, i);
+			assign_best_nb(stack, i);
 		i++;
 	}
 }
