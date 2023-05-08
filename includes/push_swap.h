@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/03 16:52:33 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/04 16:01:27 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 # define PUSH_SWAP_H
 
 # include "../ft_printf/ft_printf.h"
+# include "../bonus/checker.h"
 
 typedef struct s_data{
 	int	*a;
 	int	*b;
 	int	len;
-
 	int	last_a;
 	int	last_b;
 	int	move_counter;
@@ -29,6 +29,8 @@ typedef struct s_data{
 	int	max;
 	int	max_pos;
 
+	int	a_tmp;
+	int	b_tmp;
 	int	a_moves;
 	int	b_moves;
 	int	tot_moves;
@@ -40,10 +42,11 @@ typedef struct s_data{
 	int	best_nb;
 }	t_data;
 
-// Funzioni base, funzioni per il lis e funzioni per gli stack <= 5
+// Mosse, funzioni generali e funzioni per gli stack <= 5
 int		ft_is_digit(char c);
 int		ft_abs(int nb);
 int		ft_atoi(const char *str);
+int		check_sorted_input(t_data *stack);
 int		check_input(t_data *stack, char **argv);
 int		check_if_double(int nb, int	*array, int pos);
 void	sa(t_data *stack, int flag);
@@ -83,8 +86,10 @@ void	rrr_move(t_data *stack);
 void	rr_move(t_data *stack);
 void	rra_rb_move(t_data *stack);
 void	ra_rrb_move(t_data *stack);
-int		combo(t_data *stack, int a, int b);
-int		not_combo(t_data *stack, int a, int b);
+void	case1(t_data *stack);
+void	case2(t_data *stack);
+void	case3(t_data *stack);
+void	case4(t_data *stack);
 void	assign_best_nb(t_data *stack, int a, int b, int i);
 
 // Funzione che libera la memoria
@@ -106,5 +111,12 @@ void	string_input(t_data *stack, char *argv);
 void	*ft_cicle(char const *s, char **str, char c, unsigned int count);
 void	control_fill_stack(t_data *stack, char **temp);
 size_t	ft_strlen(const char *str);
+
+// Funzioni per il checker
+int		ft_strcmp(char *s1, char *s2);
+void	final_check(t_data *stack);
+void	wrong_input(t_data *stack);
+void	check_rotate_input(t_data *stack, char *str);
+void	valid_move_checker(t_data *stack, char *str);
 
 #endif

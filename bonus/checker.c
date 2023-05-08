@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 09:11:46 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/03 15:47:26 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/04 12:07:56 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ void	final_check(t_data *stack)
 	{
 		if (stack->a[i] < stack->a[i - 1])
 		{
-			flag == 0;
+			flag = 0;
 			break ;
 		}
 		i++;

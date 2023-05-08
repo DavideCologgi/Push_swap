@@ -5,15 +5,14 @@
 #                                                     +:+ +:+         +:+      #
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
-#    Created: 2023/05/04 11:45:17 by dcologgi          #+#    #+#              #
-#    Updated: 2023/05/04 11:48:48 by dcologgi         ###   ########.fr        #
+#    Created: 2023/05/04 11:45:24 by dcologgi          #+#    #+#              #
+#    Updated: 2023/05/04 11:57:51 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ../lib/libftprintf.a
+NAME = ../lib/libbonus.a
 
-SOURCES = ft_printf_hex.c ft_printf_int.c ft_printf_ptr.c ft_printf_uint.c \
-ft_printf_utils.c ft_printf.c
+SOURCES = checker.c checker_utils.c get_next_line.c get_next_line_utils.c
 
 OBJECTS = ${SOURCES:.c=.o}
 
