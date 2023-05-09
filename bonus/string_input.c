@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:22:34 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/02 17:52:19 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/09 15:05:17 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ int	control_doubles(t_data *stack)
 	while (i < stack->len)
 	{
 		j = i + 1;
-		while (j <= stack->len)
+		while (j < stack->len)
 		{
 			if (stack->a[i] == stack->a[j])
 				return (0);
