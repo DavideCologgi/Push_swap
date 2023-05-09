@@ -6,33 +6,45 @@
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 11:45:17 by dcologgi          #+#    #+#              #
-#    Updated: 2023/05/04 11:48:48 by dcologgi         ###   ########.fr        #
+#    Updated: 2023/05/09 11:21:18 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ../lib/libftprintf.a
+NAME = ft_printf
 
-SOURCES = ft_printf_hex.c ft_printf_int.c ft_printf_ptr.c ft_printf_uint.c \
-ft_printf_utils.c ft_printf.c
+SRCS = ft_printf.c ft_printf_hex.c ft_printf_int.c ft_printf_ptr.c \
+ft_printf_uint.c ft_printf_utils.c
 
-OBJECTS = ${SOURCES:.c=.o}
+OBJS = ${SRCS:.c=.o}
 
 CC = gcc
-
 RM = rm -f
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Wextra -Werror
+MAKEFLAGS = --silent
 
-.o.c:
-	${CC} ${CFLAGS} ${OBJECTS} $< -o ${<:.c=.o}
-
-${NAME}: ${OBJECTS}
-	ar rcs ${NAME} ${OBJECTS}
+# Colors
+DEF_COLOR = \033[0;39m
+GRAY = \033[0;90m
+RED = \033[0;91m
+GREEN = \033[0;92m
+YELLOW = \033[0;93m
+BLUE = \033[0;94m
+MAGENTA = \033[0;95m
+CYAN = \033[0;96m
+WHITE = \033[0;97m
 
 all: ${NAME}
+	@echo "${GREEN}Program ft_printf successfully compiled!${DEF_COLOR}"
+
+.c.o:
+	${CC} ${CFLAGS} -g -c $< -o ${<:.c=.o}
+
+$(NAME): ${OBJS}
+	ar rcs ${NAME} ${OBJS}
 
 clean:
-	${RM} ${OBJECTS}
+	${RM} ${OBJS}
 
 fclean: clean
 	${RM} ${NAME}

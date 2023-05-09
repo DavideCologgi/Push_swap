@@ -6,15 +6,15 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 12:33:16 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/08 14:19:51 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/08 16:57:32 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include "../ft_printf/ft_printf.h"
 # include "../bonus/checker.h"
+# include "../ft_printf/ft_printf.h"
 
 typedef struct s_data{
 	int	*a;
