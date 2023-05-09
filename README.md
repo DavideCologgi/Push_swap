@@ -23,6 +23,6 @@ The last element becomes the first one.
 ★ rrr : rra and rrb at the same time.
 
 The algorithm, before executing each move between stack a and stack b, calculates which number of stack a takes the least possible number of moves to be pushed in order to stack b. This way, when stack b fills up completely, it rotates so that the maximum is in the first position. Finally, a series of repushes follow on stack a until stack b is completely empty.
-🎆BOOM!🎆 Now you have stack a sorted in ascending order (the minimum is in first place).
+🎆BOOM!🎆 Now you have stack a sorted in ascending order (the minimum is in first place). \n
 🏁 For a stack of 100 numbers the algorithm performs 550 moves on average
 🏁 For a stack of 500 numbers the algorithm performs 5100 moves on average
