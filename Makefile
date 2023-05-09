@@ -6,11 +6,11 @@
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 15:27:31 by dcologgi          #+#    #+#              #
-#    Updated: 2023/05/09 11:38:34 by dcologgi         ###   ########.fr        #
+#    Updated: 2023/05/09 12:16:10 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = pushswap
+NAME = push_swap
 NAME_BONUS = checker
 PRINTF_PATH = ft_printf/
 PRINTF = $(PRINTF_PATH)libftprintf.a
