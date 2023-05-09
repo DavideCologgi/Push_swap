@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/20 09:39:01 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/03 10:25:44 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:00:53 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ void	sa(t_data *stack, int flag)
 {
 	int	tmp;
 
-	if (stack->a[0] != 0 && stack->a[1] != 0)
+	if (stack->last_a >= 1)
 	{
 		tmp = stack->a[0];
 		stack->a[0] = stack->a[1];
@@ -33,7 +33,7 @@ void	sb(t_data *stack, int flag)
 {
 	int	tmp;
 
-	if (stack->b[0] != 0 && stack->b[1] != 0)
+	if (stack->last_b >= 2)
 	{
 		tmp = stack->b[0];
 		stack->b[0] = stack->b[1];

@@ -6,11 +6,11 @@
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/05/04 11:45:17 by dcologgi          #+#    #+#              #
-#    Updated: 2023/05/09 11:21:18 by dcologgi         ###   ########.fr        #
+#    Updated: 2023/05/09 11:36:09 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_printf
+NAME = libftprintf.a
 
 SRCS = ft_printf.c ft_printf_hex.c ft_printf_int.c ft_printf_ptr.c \
 ft_printf_uint.c ft_printf_utils.c

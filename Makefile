@@ -6,14 +6,14 @@
 #    By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/16 15:27:31 by dcologgi          #+#    #+#              #
-#    Updated: 2023/05/09 11:21:24 by dcologgi         ###   ########.fr        #
+#    Updated: 2023/05/09 11:38:34 by dcologgi         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = pushswap
 NAME_BONUS = checker
 PRINTF_PATH = ft_printf/
-PRINTF = $(PRINTF_PATH)ft_printf
+PRINTF = $(PRINTF_PATH)libftprintf.a
 CC = gcc
 CFLAGS = -Wall -Wextra -Werror
 MAKEFLAGS += --silent
@@ -49,8 +49,6 @@ $(PRINTF) :
 	make -C $(PRINTF_PATH)
 
 all : $(NAME)
-	make -C ft_printf/
-	@$(CC) -o $(EXECUTABLE) -L./lib/ -lpushswap ft_printf/libftprintf.a
 
 bonus : $(OBJS_BONUS) $(PRINTF)
 	$(CC) $(OBJS_BONUS) $(PRINTF) -o $(NAME_BONUS)

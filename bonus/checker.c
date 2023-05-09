@@ -6,7 +6,7 @@
 /*   By: dcologgi <dcologgi@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/03 09:11:46 by dcologgi          #+#    #+#             */
-/*   Updated: 2023/05/08 14:40:31 by dcologgi         ###   ########.fr       */
+/*   Updated: 2023/05/09 12:02:41 by dcologgi         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	final_check(t_data *stack)
 	}
 	if (flag == 1)
 		ft_printf("OK");
-	else
+	else if (flag == 0)
 		ft_printf("KO");
 	if (stack->a)
 		free (stack->a);
