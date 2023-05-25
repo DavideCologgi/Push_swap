@@ -37,6 +37,6 @@ The algorithm, before executing each move between stack a and stack b, calculate
 <p>
 🎆BOOM!🎆 Now you have stack a sorted in ascending order (the minimum is in first place).
 <p>
-🏁 For a stack of 100 numbers the algorithm performs 550 moves on average
+🏁 For a stack of 100 numbers this algorithm performs 550 moves on average
 <p>
-🏁 For a stack of 500 numbers the algorithm performs 5100 moves on average
+🏁 For a stack of 500 numbers this algorithm performs 5100 moves on average
